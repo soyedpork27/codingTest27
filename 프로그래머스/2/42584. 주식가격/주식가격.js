@@ -1,28 +1,24 @@
-function solution(prices) {
-    const stack = [];
+const solution = (prices) => {
     
-    const result = Array(prices.length).fill(0).map((_,idx)=>idx).reverse();
+    const n = prices.length;
     
-    const visited = []
-
-    prices.forEach((price,idx)=>{
-        const sLastIdx = stack.length-1
-
-        // 자신보다 뒤에 있는 숫자 중에서 작아지면 처리 
-        if(price < stack[sLastIdx]){
-            let backTrackingIdx = 0
-
-            // 이전 값이 크다면
-            while(price < stack[sLastIdx-backTrackingIdx]){
-                // 처음 접근한 값이라면 값을 적용 
-                if(!visited[sLastIdx-backTrackingIdx]){
-                    result[sLastIdx-backTrackingIdx] -= (prices.length-1-idx)
-                    visited[sLastIdx-backTrackingIdx] = true
-                }
-                backTrackingIdx++
+    // 0으로 채워진 배열 생성
+    const result = new Array(n).fill(0);
+    
+    // n^2번 이중 반복문을 실행
+    for(let i = 0 ; i < n ; i++){
+        for(let j = i+1; j < n; j++){
+            // i 번째 값과 i+1번째 값을 비교 했을 때 가격이 떨어진다면
+            if(prices[i] > prices[j]) {
+                // 결과배열의 i번째 값을 j-1로 할당하고 반복문을 탈출한다.
+                result[i] = j-i;
+                break;
+            }else {
+                // i번째 값에 1 씩 추가한다.
+                result[i]++
             }
         }
-        stack.push(price)
-    })
-    return result
+    }
+    // 결과 배열 리턴
+    return result;
 }
