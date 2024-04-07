@@ -6,11 +6,13 @@ function solution(id_list, report, k) {
        obj[i] = [];
     });
     
+    
     report.forEach((i) => {
        i = i.split(' ');
             
         obj[i[1]].push(i[0]);
     });
+    
     
     const obj2 = {};
     
