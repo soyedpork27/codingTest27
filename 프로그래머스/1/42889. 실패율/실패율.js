@@ -22,7 +22,6 @@ function solution(N, stages) {
         });
         
     });
-    
 
     
     const result = [];
@@ -43,6 +42,8 @@ function solution(N, stages) {
     if(result.every((i) => i===result[0])){
         return result.map((_,idx) => idx+1);
     }
+    
+
     
     const a = Array(...new Set([...result]));
     
