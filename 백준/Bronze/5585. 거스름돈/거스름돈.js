@@ -24,7 +24,8 @@ rl.on('close', () => {
     
     for(let i of arr){
         ctn = ctn + Math.floor(num/i);
-        num = num - (i * Math.floor(num/i));
+        // num = num - (i * Math.floor(num/i));
+        num = num%i;
     }
     
     console.log(ctn);
