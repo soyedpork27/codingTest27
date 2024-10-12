@@ -1,8 +1,6 @@
+let ctn = 0;
 
-
-function solution(num) {
-    
-    function CollatzFunction(num){
+function CollatzFunction(num){
         
         if(num===1){
             return ;
@@ -22,15 +20,11 @@ function solution(num) {
             CollatzFunction(num);
         }
     }
-    
-    let ctn = 0;
+
+function solution(num) {
     
     CollatzFunction(num);
     
-    if(ctn>=500){
-        return -1;
-    }else{
-        return ctn;
-    }
+    return ctn>=500?-1:ctn
     
 }
