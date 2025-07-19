@@ -1,13 +1,14 @@
 function solution(s){
+    // 스택(stack)을 사용한 문제 풀이
     
     const result = [];
     
     s.split('').forEach((str) => {
         
         // 만약 결과 배열의 첫 번째 값이 닫힌 괄호라면 종료
-        if(result[0]===')'){
-            return;
-        }
+        // if(result[0]===')'){
+        //     return;
+        // }
         
         // 만약 값이 닫힌 괄호이고 결과 배열의 마지막 값이 열린 괄호라면 결과 배열의 마지막 값(열린 괄호)을 삭제하고 종료
         if(str===')'&&result[result.length-1]==='('){
